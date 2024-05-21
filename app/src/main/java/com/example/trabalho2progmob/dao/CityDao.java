@@ -7,7 +7,11 @@ import androidx.room.Query;
 import androidx.room.Update;
 
 
+import com.example.trabalho2progmob.entities.Address;
 import com.example.trabalho2progmob.entities.City;
+
+import java.util.List;
+
 @Dao
 public interface CityDao {
 
@@ -19,4 +23,6 @@ public interface CityDao {
     void update(City city);
     @Delete
     void delete(City city);
+    @Query("SELECT * FROM City")
+    List<City> getAll();
 }

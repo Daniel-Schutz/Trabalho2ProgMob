@@ -6,7 +6,11 @@ import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
 
+import com.example.trabalho2progmob.entities.Address;
 import com.example.trabalho2progmob.entities.User;
+
+import java.util.List;
+
 @Dao
 public interface UserDao {
 
@@ -19,5 +23,6 @@ public interface UserDao {
     void update(User user);
     @Delete
     void delete(User user);
-
+    @Query("SELECT * FROM User")
+    List<User> getAll();
 }
