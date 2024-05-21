@@ -1,6 +1,15 @@
 package com.example.trabalho2progmob.view;
 
-import android.app.Activity;
+import androidx.appcompat.app.AppCompatActivity;
 
-public class PeopleList extends Activity {
+import android.os.Bundle;
+
+import com.example.trabalho2progmob.R;
+
+public class PeopleList extends AppCompatActivity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_people_list);
+    }
 }

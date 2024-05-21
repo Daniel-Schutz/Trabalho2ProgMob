@@ -1,16 +1,19 @@
 package com.example.trabalho2progmob.view;
 
-import android.os.Bundle;
-
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.celularmarcaroom.R;
+import android.os.Bundle;
+import android.view.View;
 
-public class MarcaView extends AppCompatActivity {
+import com.example.trabalho2progmob.R;
 
+public class PeopleView extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_people_view);
+    }
+
+    public void voltar(View view) {
     }
 }

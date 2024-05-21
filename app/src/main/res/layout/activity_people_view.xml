@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.MarcaView">
+    tools:context=".view.PeopleView">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -13,11 +13,11 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/textViewNome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="Nome:"
+            android:text="@string/nome"
             android:textSize="20sp" />
 
         <EditText
@@ -29,13 +29,12 @@
             android:textSize="25sp" />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/textViewEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="Email:"
+            android:text="@string/email"
             android:textSize="20sp" />
-
         <EditText
             android:id="@+id/editTextTextEmailAddress3"
             android:layout_width="match_parent"
@@ -44,11 +43,11 @@
             android:inputType="textEmailAddress" />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/textViewSenha"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="Senha:"
+            android:text="@string/senha"
             android:textSize="20sp" />
 
         <EditText
@@ -81,6 +80,7 @@
                 android:background="#E91E1E"
                 android:onClick="excluirMarca"
                 android:text="Excluir" />
+
             <Button
                 android:id="@+id/btnSalvarMarca"
                 android:layout_width="wrap_content"
