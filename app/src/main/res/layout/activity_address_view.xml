@@ -28,7 +28,7 @@
             android:textSize="20sp" />
 
         <EditText
-            android:id="@+id/edtModelo"
+            android:id="@+id/edtDesc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
@@ -45,7 +45,7 @@
             android:textSize="20sp" />
 
         <EditText
-            android:id="@+id/editTextNumber"
+            android:id="@+id/edtLatitude"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -60,7 +60,7 @@
             android:textSize="20sp" />
 
         <EditText
-            android:id="@+id/editTextNumber2"
+            android:id="@+id/edtLongitude"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -104,32 +104,31 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
                 android:layout_marginTop="10dp"
+                android:layout_marginRight="5dp"
                 android:background="#CCCCCC"
-                android:onClick="voltar"
                 android:text="Voltar" />
 
             <Button
-                android:id="@+id/btnExcluirModelo"
+                android:id="@+id/btnExcluirCidade"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
                 android:layout_marginTop="10dp"
+                android:layout_marginRight="5dp"
                 android:background="#E91E1E"
-                android:onClick="excluirCelular"
+                android:onClick="deleteAddress"
                 android:text="Excluir" />
 
             <Button
-                android:id="@+id/btnSalvarModelo"
+                android:id="@+id/btnSalvarCidade"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
                 android:layout_marginTop="10dp"
+                android:layout_marginRight="5dp"
                 android:background="#9EA9E8"
-                android:onClick="salvarCelular"
+                android:onClick="saveAddress"
                 android:text="Salvar" />
         </LinearLayout>
 
