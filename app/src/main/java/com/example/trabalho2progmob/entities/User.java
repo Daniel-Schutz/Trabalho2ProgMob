@@ -36,4 +36,9 @@ public class User {
     public String getSenha() {return senha;}
 
     public void setSenha(String senha) {this.senha = senha;}
+
+    @Override
+    public String toString() {
+        return nome;
+    }
 }

@@ -46,15 +46,20 @@ public class AddressView extends AppCompatActivity {
         if(dbAddressID >= 0){
             fillAddress();
         } else {
-            binding.btnExcluirCidade.setVisibility(View.GONE);
+            binding.btnExcluirEndereco.setVisibility(View.GONE);
         }
         fillCities();
     }
 
     private void fillAddress() {
         dbAddress = db.addressModel().getAddress(dbAddressID);
-        binding.edtDesc.setText(dbAddress.getDescricao());
+        if (dbAddress != null) {
+            binding.edtDesc.setText(dbAddress.getDescricao());
+            binding.edtLatitude.setText(String.valueOf(dbAddress.getLatitude()));
+            binding.edtLongitude.setText(String.valueOf(dbAddress.getLongitude()));
+        }
     }
+
 
     private void fillCities() {
         cities = db.cityModel().getAll();
@@ -69,35 +74,52 @@ public class AddressView extends AppCompatActivity {
     public void saveAddress(View view) {
         String descricao = binding.edtDesc.getText().toString();
         String newCity = "";
+        String latitudeText = binding.edtLatitude.getText().toString();
+        String longitudeText = binding.edtLongitude.getText().toString();
 
         if(spinner.getSelectedItem() != null){
             newCity = spinner.getSelectedItem().toString();
         }
-        if(descricao.equals("")){
-            Toast.makeText(this, "A descricao é obrigatória", Toast.LENGTH_SHORT).show();
+        if(descricao.isEmpty()){
+            Toast.makeText(this, "A descrição é obrigatória", Toast.LENGTH_SHORT).show();
             return;
         }
-        if(newCity.equals("")) {
+        if(newCity.isEmpty()) {
             Toast.makeText(this, "Entre com uma Cidade.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if(latitudeText.isEmpty() || longitudeText.isEmpty()) {
+            Toast.makeText(this, "Latitude e Longitude são obrigatórios", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        double latitude;
+        double longitude;
+        try {
+            latitude = Double.parseDouble(latitudeText);
+            longitude = Double.parseDouble(longitudeText);
+        } catch (NumberFormatException e) {
+            Toast.makeText(this, "Latitude e Longitude devem ser números válidos", Toast.LENGTH_SHORT).show();
             return;
         }
 
         Address newAddress = new Address();
         newAddress.setDescricao(descricao);
-        newAddress.setCityID(cities.get(
-                spinner.getSelectedItemPosition()).getCityID());
+        newAddress.setLatitude(latitude);
+        newAddress.setLongitude(longitude);
+        newAddress.setCityID(cities.get(spinner.getSelectedItemPosition()).getCityID());
+
         if(dbAddress != null){
             newAddress.setAddressID(dbAddressID);
             db.addressModel().update(newAddress);
-            Toast.makeText(this, "Endereço atualizado com sucesso.",
-                    Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Endereço atualizado com sucesso.", Toast.LENGTH_SHORT).show();
         } else {
             db.addressModel().insertAll(newAddress);
-            Toast.makeText(this, "Endereço cadastrado com sucesso.",
-                    Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Endereço cadastrado com sucesso.", Toast.LENGTH_SHORT).show();
         }
         finish();
     }
+
     public void deleteAddress(View view) {
         new AlertDialog.Builder(this)
                 .setTitle("Exclusão de Endereço")

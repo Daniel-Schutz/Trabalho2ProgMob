@@ -59,13 +59,12 @@ public class AddressList extends AppCompatActivity {
         listViewAddresses.setAdapter(addressesAdapter);
 
         listViewAddresses.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            public void onItemClick(AdapterView<?> parent, View view,
-                                    int position, long id) {
-                Address addresselected = addresses.get(position);
-                edtIntent.putExtra("ADDRESS_SELECIONADA_ID",
-                        addresselected.getAddressID());
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Address addressSelected = addresses.get(position);
+                edtIntent.putExtra("ADDRESS_SELECIONADO_ID", addressSelected.getAddressID());
                 startActivity(edtIntent);
             }
         });
     }
+
 }

@@ -59,7 +59,8 @@ public class CityView extends AppCompatActivity {
         }
 
         City thisCity = new City();
-        /*Mudar os constructors de todos*/
+        thisCity.setCidade(nomeCity);
+        thisCity.setEstado(nomeState);
 
         if (dbCity != null) {
             thisCity.setCityID(dbCityID);

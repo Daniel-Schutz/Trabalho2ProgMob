@@ -10,38 +10,46 @@ import androidx.room.PrimaryKey;
         onDelete = ForeignKey.CASCADE))
 public class Address {
 
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     private int addressID;
     private String descricao;
     private double latitude;
     private double longitude;
     private int cityID;
 
-    public Address(){}
-    public Address(int addressID, String descricao, double latitude, double longitude) {
+    public Address() {}
+
+    public Address(int addressID, String descricao, double latitude, double longitude, int cityID) {
         this.addressID = addressID;
         this.descricao = descricao;
         this.latitude = latitude;
         this.longitude = longitude;
+        this.cityID = cityID;
     }
 
-    public int getAddressID() {return addressID;}
+    public int getAddressID() { return addressID; }
 
-    public void setAddressID(int addressID) {this.addressID = addressID;}
+    public void setAddressID(int addressID) { this.addressID = addressID; }
 
-    public String getDescricao() {return descricao;}
+    public String getDescricao() { return descricao; }
 
-    public void setDescricao(String descricao) {this.descricao = descricao;}
+    public void setDescricao(String descricao) { this.descricao = descricao; }
 
-    public double getLatitude() {return latitude;}
+    public double getLatitude() { return latitude; }
 
-    public void setLatitude(double latitude) {this.latitude = latitude;}
+    public void setLatitude(double latitude) { this.latitude = latitude; }
 
-    public double getLongitude() {return longitude;}
+    public double getLongitude() { return longitude; }
 
-    public void setLongitude(double longitude) {this.longitude = longitude;}
+    public void setLongitude(double longitude) { this.longitude = longitude; }
 
-    public int getCityID() {return cityID;}
+    public int getCityID() { return cityID; }
 
-    public void setCityID(int cityID) {this.cityID = cityID;}
+    public void setCityID(int cityID) { this.cityID = cityID; }
+
+    @Override
+    public String toString() {
+        return descricao;
+    }
 }
+

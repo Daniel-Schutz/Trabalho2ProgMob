@@ -33,12 +33,12 @@ public class PeopleView extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         if(dbPeopleID >= 0) {
-            getDBCity();
+            getDBPeople();
         } else {
             binding.btnExcluirUser.setVisibility(View.GONE);
         }
     }
-    private void getDBCity() {
+    private void getDBPeople() {
         dbPeople = db.userModel().getUser(dbPeopleID);
         binding.edtEmail.setText(dbPeople.getEmail());
         binding.edtNome.setText(dbPeople.getNome());
@@ -48,26 +48,24 @@ public class PeopleView extends AppCompatActivity {
     public void saveUser(View view) {
         String nomeUser = binding.edtNome.getText().toString();
         if (nomeUser.equals("")) {
-            Toast.makeText(this, "Adicione um nome.",
-                    Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Adicione um nome.", Toast.LENGTH_SHORT).show();
             return;
         }
         String nomeEmail = binding.edtEmail.getText().toString();
         if (nomeEmail.equals("")) {
-            Toast.makeText(this, "Adicione um email.",
-                    Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Adicione um email.", Toast.LENGTH_SHORT).show();
             return;
         }
         String nomeSenha = binding.edtSenha.getText().toString();
         if (nomeSenha.equals("")) {
-            Toast.makeText(this, "Adicione uma senha.",
-                    Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Adicione uma senha.", Toast.LENGTH_SHORT).show();
             return;
         }
 
         User thisUser = new User();
-        /* Mudar os constructors de todos*/
-
+        thisUser.setNome(nomeUser);
+        thisUser.setEmail(nomeEmail);
+        thisUser.setSenha(nomeSenha);
         if (dbPeople != null) {
             thisUser.setUserID(dbPeopleID);
             db.userModel().update(thisUser);

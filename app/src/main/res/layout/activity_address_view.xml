@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.AdressView">
+    tools:context=".view.AddressView">
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="0dp"
@@ -110,7 +110,7 @@
                 android:text="Voltar" />
 
             <Button
-                android:id="@+id/btnExcluirCidade"
+                android:id="@+id/btnExcluirEndereco"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="5dp"
@@ -121,7 +121,7 @@
                 android:text="Excluir" />
 
             <Button
-                android:id="@+id/btnSalvarCidade"
+                android:id="@+id/btnSalvarEndereco"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="5dp"

@@ -54,9 +54,9 @@ public class CityList extends AppCompatActivity {
     }
     private void fillCities() {
         cities = db.cityModel().getAll();
-        ArrayAdapter<City> addressesAdapter = new ArrayAdapter<>(this,
+        ArrayAdapter<City> citiesAdapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_list_item_1, cities);
-        listViewCities.setAdapter(addressesAdapter);
+        listViewCities.setAdapter(citiesAdapter);
 
         listViewCities.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view,

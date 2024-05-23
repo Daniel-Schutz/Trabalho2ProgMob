@@ -62,8 +62,7 @@ public class PeopleList extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
                 User personselected = people.get(position);
-                edtIntent.putExtra("PEOPLE_SELECIONADA_ID",
-                        personselected.getUserID());
+                edtIntent.putExtra("USER_SELECIONADO_ID", personselected.getUserID());
                 startActivity(edtIntent);
             }
         });
