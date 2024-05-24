@@ -36,6 +36,10 @@ public class AddressList extends AppCompatActivity {
         binding.btnHomePeople.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
+                Intent it = new Intent(AddressList.this, MainActivity.class);
+                startActivity(it);
                 finish();
             }
         });
