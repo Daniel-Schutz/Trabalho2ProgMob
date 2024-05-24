@@ -3,14 +3,15 @@ package com.example.trabalho2progmob.view;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
+import android.content.ActivityNotFoundException;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
-
-import com.example.trabalho2progmob.R;
+import android.content.Intent;
+import android.net.Uri;
 import com.example.trabalho2progmob.database.LocalDatabase;
 import com.example.trabalho2progmob.databinding.ActivityAddressViewBinding;
 import com.example.trabalho2progmob.entities.Address;
@@ -38,6 +39,12 @@ public class AddressView extends AppCompatActivity {
         spinner = binding.spinner;
         dbAddressID = getIntent().getIntExtra(
                 "ADDRESS_SELECIONADO_ID", -1);
+        binding.btnAbrirNoMaps.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openInMaps();
+            }
+        });
     }
 
     @Override
@@ -139,6 +146,45 @@ public class AddressView extends AppCompatActivity {
         Toast.makeText(this, "Endereço excluído com sucesso.", Toast.LENGTH_SHORT).show();
         finish();
     }
+
+    private void openInMaps() {
+        String latitudeText = binding.edtLatitude.getText().toString();
+        String longitudeText = binding.edtLongitude.getText().toString();
+
+        if (latitudeText.isEmpty() || longitudeText.isEmpty()) {
+            Toast.makeText(this, "Latitude e Longitude são obrigatórios", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        double latitude;
+        double longitude;
+        try {
+            latitude = Double.parseDouble(latitudeText);
+            longitude = Double.parseDouble(longitudeText);
+        } catch (NumberFormatException e) {
+            Toast.makeText(this, "Latitude e Longitude devem ser números válidos", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        int zoomLevel = 15; // Ajuste o nível de zoom conforme necessário
+        String uri = String.format("geo:%s,%s?q=%s,%s&z=%d", latitude, longitude, latitude, longitude, zoomLevel);
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+        intent.setPackage("com.google.android.apps.maps");
+
+        try {
+            startActivity(intent);
+        } catch (ActivityNotFoundException e) {
+            // Tenta abrir no Maps se a aplicação não estiver instalada
+            Intent unrestrictedIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+            try {
+                startActivity(unrestrictedIntent);
+            } catch (ActivityNotFoundException innerEx) {
+                Toast.makeText(this, "Nenhuma aplicação de mapas encontrada", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+
     public void voltar(View view) {
         finish();
     }
