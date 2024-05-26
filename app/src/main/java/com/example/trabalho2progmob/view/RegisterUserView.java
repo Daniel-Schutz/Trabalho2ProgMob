@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
-
+import android.util.Patterns;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.trabalho2progmob.database.LocalDatabase;
@@ -49,6 +49,13 @@ public class RegisterUserView extends AppCompatActivity {
             Toast.makeText(this, "Adicione um email.", Toast.LENGTH_SHORT).show();
             return;
         }
+
+
+        if (!Patterns.EMAIL_ADDRESS.matcher(nomeEmail).matches()) {
+            Toast.makeText(this, "Formato de email inválido.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         String nomeSenha = binding.editTextTextPassword2.getText().toString();
         if (nomeSenha.equals("")) {
             Toast.makeText(this, "Adicione uma senha.", Toast.LENGTH_SHORT).show();

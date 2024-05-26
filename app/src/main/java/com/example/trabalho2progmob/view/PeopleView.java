@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteConstraintException;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
-
+import android.util.Patterns;
 import com.example.trabalho2progmob.R;
 import com.example.trabalho2progmob.database.LocalDatabase;
 import com.example.trabalho2progmob.databinding.ActivityPeopleViewBinding;
@@ -54,6 +54,11 @@ public class PeopleView extends AppCompatActivity {
         String nomeEmail = binding.edtEmail.getText().toString();
         if (nomeEmail.equals("")) {
             Toast.makeText(this, "Adicione um email.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (!Patterns.EMAIL_ADDRESS.matcher(nomeEmail).matches()) {
+            Toast.makeText(this, "Formato de email inválido.", Toast.LENGTH_SHORT).show();
             return;
         }
         String nomeSenha = binding.edtSenha.getText().toString();

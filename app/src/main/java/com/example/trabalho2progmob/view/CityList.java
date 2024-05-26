@@ -11,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.example.trabalho2progmob.R;
+import com.example.trabalho2progmob.adapters.CityAdapter;
 import com.example.trabalho2progmob.database.LocalDatabase;
 import com.example.trabalho2progmob.databinding.ActivityCitiesListBinding;
 import com.example.trabalho2progmob.entities.City;
@@ -54,8 +55,7 @@ public class CityList extends AppCompatActivity {
     }
     private void fillCities() {
         cities = db.cityModel().getAll();
-        ArrayAdapter<City> citiesAdapter = new ArrayAdapter<>(this,
-                android.R.layout.simple_list_item_1, cities);
+        CityAdapter citiesAdapter = new CityAdapter(this, cities);
         listViewCities.setAdapter(citiesAdapter);
 
         listViewCities.setOnItemClickListener(new AdapterView.OnItemClickListener() {

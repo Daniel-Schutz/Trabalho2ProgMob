@@ -11,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.example.trabalho2progmob.R;
+import com.example.trabalho2progmob.adapters.AddressAdapter;
 import com.example.trabalho2progmob.database.LocalDatabase;
 import com.example.trabalho2progmob.databinding.ActivityAddressesListBinding;
 import com.example.trabalho2progmob.entities.Address;
@@ -58,8 +59,8 @@ public class AddressList extends AppCompatActivity {
     }
     private void preencheEnderecos() {
         addresses = db.addressModel().getAll();
-        ArrayAdapter<Address> addressesAdapter = new ArrayAdapter<>(this,
-                android.R.layout.simple_list_item_1, addresses);
+        AddressAdapter addressesAdapter = new AddressAdapter(this, addresses);
+        listViewAddresses.setAdapter(addressesAdapter);
         listViewAddresses.setAdapter(addressesAdapter);
 
         listViewAddresses.setOnItemClickListener(new AdapterView.OnItemClickListener() {

@@ -11,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.example.trabalho2progmob.R;
+import com.example.trabalho2progmob.adapters.UserAdapter;
 import com.example.trabalho2progmob.database.LocalDatabase;
 import com.example.trabalho2progmob.databinding.ActivityPeopleListBinding;
 import com.example.trabalho2progmob.entities.User;
@@ -54,9 +55,10 @@ public class PeopleList extends AppCompatActivity {
     }
     private void preencherUsuarios() {
         people = db.userModel().getAll();
-        ArrayAdapter<User> peopleAdapter = new ArrayAdapter<>(this,
-                android.R.layout.simple_list_item_1, people);
-        listViewPeople.setAdapter(peopleAdapter);
+        UserAdapter userAdapter = new UserAdapter(this, people);
+        listViewPeople.setAdapter(userAdapter);
+
+        listViewPeople.setAdapter(userAdapter);
 
         listViewPeople.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view,
