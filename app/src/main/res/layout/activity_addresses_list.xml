@@ -18,8 +18,8 @@
         android:id="@+id/btnHomePeople"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="34dp"
+        android:layout_marginStart="112dp"
+        android:layout_marginTop="32dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/listAddresses"
         app:srcCompat="@drawable/baseline_add_home_24" />
@@ -28,8 +28,8 @@
         android:id="@+id/btnAdd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="57dp"
-        android:layout_marginTop="34dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="32dp"
         app:layout_constraintStart_toEndOf="@+id/btnHomePeople"
         app:layout_constraintTop_toBottomOf="@+id/listAddresses"
         app:srcCompat="@drawable/baseline_add_circle_outline_24" />

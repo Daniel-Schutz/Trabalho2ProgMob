@@ -19,8 +19,8 @@
         android:id="@+id/btnHomePeople"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="72dp"
+        android:layout_marginStart="116dp"
+        android:layout_marginTop="88dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/listPeople"
         app:srcCompat="@drawable/baseline_add_home_24" />
@@ -29,8 +29,8 @@
         android:id="@+id/btnAdd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="76dp"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="88dp"
         app:layout_constraintStart_toEndOf="@+id/btnHomePeople"
         app:layout_constraintTop_toBottomOf="@+id/listPeople"
         app:srcCompat="@drawable/baseline_add_circle_outline_24" />

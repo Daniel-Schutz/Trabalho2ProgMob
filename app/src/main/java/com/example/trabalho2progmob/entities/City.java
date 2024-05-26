@@ -5,7 +5,7 @@ import androidx.room.PrimaryKey;
 
 @Entity
 public class City {
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     private int cityID;
     private String cidade;
     private String estado;

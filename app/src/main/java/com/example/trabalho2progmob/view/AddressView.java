@@ -45,6 +45,14 @@ public class AddressView extends AppCompatActivity {
                 openInMaps();
             }
         });
+        binding.button5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent it=new Intent(AddressView.this,CityView.class);
+                startActivity(it);
+                finish();
+            }
+        });
     }
 
     @Override

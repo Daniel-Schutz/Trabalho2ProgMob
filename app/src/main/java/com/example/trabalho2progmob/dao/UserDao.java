@@ -25,4 +25,7 @@ public interface UserDao {
     void delete(User user);
     @Query("SELECT * FROM User")
     List<User> getAll();
+
+    @Query("SELECT * FROM User WHERE email = :email AND senha = :senha LIMIT 1")
+    User getUserByEmailAndPassword(String email, String senha);
 }
